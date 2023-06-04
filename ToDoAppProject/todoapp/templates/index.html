@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+{% endblock title %}
+
+{% block content %}
+
+
+<div class="card">
+    <div class="card-header">
+        <h1 class="text-center">ToDo App</h1>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="input-group mb-3">
+                <!-- {{task_form}} to display all -->
+                {{task_form.title}}
+                <!-- to display particular field-->
+
+                <button type="submit" class="btn btn-primary btn-lg">EKLE</button>
+            </div>
+        </form>
+
+        <h4 class="bg-warning text-light py-2 rounded text-center">Görevlerim:</h4>
+
+        <ul class="list-group">
+            {% for task in tasks %}
+            <li class="list-group-item list-group-item-action">
+                {% if task.completed == True %}
+                <strike>{{task.title}} </strike>
+                {% else %}
+                {{task.title}}
+                {% endif %}
+
+                <div class="float-right">
+                    <a href="{% url "update_task" task.id %}" class="btn btn-sm btn-info">Güncelle</a>
+                    <a href="{% url "delete_task" task.id %}" class="btn btn-sm btn-danger">Sil</a>
+                </div>
+
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+{% endblock content %}
