@@ -26,7 +26,7 @@ SECRET_KEY = '(xy$hw*4__#grwlx1oo$86rhga!d=&)j-3+o+hvv6tpa0rv++b'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['todoapp-i2lr.onrender.com','127.0.0.1']
 
 
 # Application definition
